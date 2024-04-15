@@ -7,7 +7,7 @@ import (
 	"github.com/jung-kurt/gofpdf"
 )
 
-func main() {
+func conv() {
 	// Crie um novo documento PDF
 	pdf := gofpdf.New("P", "mm", "A4", "")
 
