@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -24,7 +23,7 @@ func UploadImg(ctx *gin.Context) {
 
 	// Define o caminho para a pasta onde você deseja salvar a imagem.
 	// Certifique-se de que a pasta existe e que você tem permissões de gravação.
-	targetFolder := "/home/joao/uploadImagem/uploadImagem/img"
+	targetFolder := "/home/joao/uploadImagem/uploadImagem/"
 	img.Filename = "1.png"
 	filePath := filepath.Join(targetFolder, img.Filename)
 
@@ -38,8 +37,6 @@ func UploadImg(ctx *gin.Context) {
 	currentImage = img
 	service.Envio(filePath)
 
-	fmt.Println("linkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk:")
-	fmt.Print(filePath)
 	os.Remove(filePath)
 
 	ctx.Redirect(http.StatusMovedPermanently, "/")
