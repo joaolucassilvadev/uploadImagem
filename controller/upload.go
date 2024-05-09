@@ -23,6 +23,7 @@ func UploadImg(ctx *gin.Context) {
 
 	// Define o caminho para a pasta onde você deseja salvar a imagem.
 	// Certifique-se de que a pasta existe e que você tem permissões de gravação.
+
 	targetFolder := "/home/joao/uploadImagem/uploadImagem/"
 	img.Filename = "1.png"
 	filePath := filepath.Join(targetFolder, img.Filename)

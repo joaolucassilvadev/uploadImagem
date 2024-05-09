@@ -1,6 +1,9 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/gin-gonic/gin"
 	"github.com/krishpranav/imageupload/routes"
 	"github.com/olahol/go-imageupload"
@@ -12,5 +15,11 @@ var currentImage *imageupload.Image
 func main() {
 	service := gin.Default()
 	routes.Routes(service)
-	service.Run(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3031"
+	}
+	if err := service.Run(":" + port); err != nil {
+		log.Panicf("error: %s", err)
+	}
 }
