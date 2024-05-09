@@ -20,11 +20,10 @@ func UploadImg(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
 	// Define o caminho para a pasta onde você deseja salvar a imagem.
 	// Certifique-se de que a pasta existe e que você tem permissões de gravação.
 
-	targetFolder := "/home/joao/uploadImagem/uploadImagem/"
+	targetFolder := "img"
 	img.Filename = "1.png"
 	filePath := filepath.Join(targetFolder, img.Filename)
 
